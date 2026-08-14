@@ -8,7 +8,7 @@ build/FaceTrack/
 dist/
 
 # App runtime data (user data, never commit)
-data/
+data/*
 !data/haarcascade_frontalface_default.xml
 
 # OS cruft
