@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# PyInstaller output
+build/FaceTrack/
+dist/
+
+# App runtime data (user data, never commit)
+data/
+!data/haarcascade_frontalface_default.xml
+
+# OS cruft
+.DS_Store
+Thumbs.db

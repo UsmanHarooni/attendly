@@ -1,0 +1,49 @@
+name: Build releases
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            artifact: FaceTrack-Linux-x86_64
+            add_data: "--add-data assets:assets --add-data data/haarcascade_frontalface_default.xml:data"
+            exe: dist/FaceTrack
+          - os: windows-latest
+            artifact: FaceTrack-Windows-x86_64
+            add_data: "--add-data assets;assets --add-data data/haarcascade_frontalface_default.xml;data"
+            exe: dist/FaceTrack.exe
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt pyinstaller
+
+      - name: Build with PyInstaller
+        run: >
+          pyinstaller --noconfirm --clean --onefile --windowed --name FaceTrack
+          --hidden-import cv2.face ${{ matrix.add_data }} main.py
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact }}
+          path: ${{ matrix.exe }}
+
+      - name: Attach to release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ matrix.exe }}
