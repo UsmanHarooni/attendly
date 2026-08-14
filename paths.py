@@ -19,3 +19,4 @@ def _assets_dir():
 BASE_DIR = _base_dir()
 DATA_DIR = BASE_DIR / "data"
 ASSETS_DIR = _assets_dir()
+FROZEN_DATA_DIR = Path(sys._MEIPASS) / "data" if FROZEN else None

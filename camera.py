@@ -28,6 +28,12 @@ class CameraThread(QThread):
         self.recognizer = face_trainer.load_recognizer() if recognize else None
 
     def run(self):
+        try:
+            self._run()
+        except Exception:
+            self.camera_failed.emit()
+
+    def _run(self):
         cap = cv2.VideoCapture(self.camera_index)
         if not cap.isOpened():
             self.camera_failed.emit()

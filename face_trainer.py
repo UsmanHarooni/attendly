@@ -1,10 +1,11 @@
 import json
 import shutil
+from pathlib import Path
 
 import cv2
 import numpy as np
 
-from paths import DATA_DIR
+from paths import DATA_DIR, FROZEN_DATA_DIR
 
 FACES_DIR = DATA_DIR / "faces"
 MODEL_PATH = DATA_DIR / "trainer.yml"
@@ -13,12 +14,17 @@ FACE_SIZE = (200, 200)
 
 
 def load_face_cascade():
-    local = DATA_DIR / "haarcascade_frontalface_default.xml"
-    if local.exists():
-        return cv2.CascadeClassifier(str(local))
-    return cv2.CascadeClassifier(
-        cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
+    candidates = [DATA_DIR / "haarcascade_frontalface_default.xml"]
+    if FROZEN_DATA_DIR:
+        candidates.append(FROZEN_DATA_DIR / "haarcascade_frontalface_default.xml")
+    candidates.append(
+        Path(cv2.data.haarcascades) / "haarcascade_frontalface_default.xml"
     )
+    for path in candidates:
+        cascade = cv2.CascadeClassifier(str(path))
+        if not cascade.empty():
+            return cascade
+    return cascade
 
 
 def list_people():
