@@ -73,7 +73,7 @@ class SettingsWindow(QWidget):
         pin_label.setObjectName("panelTitle")
 
         pin_desc = QLabel(
-            "The PIN unlocks FaceTrack and protects settings, students and logs."
+            "The PIN unlocks Attendly and protects settings, students and logs."
         )
         pin_desc.setObjectName("status")
         pin_desc.setWordWrap(True)

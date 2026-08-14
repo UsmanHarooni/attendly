@@ -89,7 +89,7 @@ class PageHeader(QWidget):
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("FaceTrack — Attendance System")
+        self.setWindowTitle("Attendly — Attendance System")
         self.setWindowIcon(branding.app_icon())
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.Window)
         self.setAttribute(Qt.WA_TranslucentBackground)
@@ -538,7 +538,7 @@ class MainWindow(QMainWindow):
 
 def main():
     app = QApplication(sys.argv)
-    app.setApplicationName("FaceTrack")
+    app.setApplicationName("Attendly")
     app.setWindowIcon(branding.app_icon())
     app.setStyleSheet(theme.STYLE)
 

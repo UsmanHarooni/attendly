@@ -9,11 +9,11 @@ if not exist venv (
 )
 venv\Scripts\pip install pyinstaller
 
-venv\Scripts\pyinstaller --noconfirm --clean --onefile --windowed --name FaceTrack ^
+venv\Scripts\pyinstaller --noconfirm --clean --onefile --windowed --name Attendly ^
   --hidden-import cv2.face ^
   --add-data "assets;assets" ^
   --add-data "data/haarcascade_frontalface_default.xml;data" ^
   main.py
 
-echo Done: dist\FaceTrack.exe
+echo Done: dist\Attendly.exe
 pause

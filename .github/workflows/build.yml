@@ -12,13 +12,13 @@ jobs:
       matrix:
         include:
           - os: ubuntu-latest
-            artifact: FaceTrack-Linux-x86_64
+            artifact: Attendly-Linux-x86_64
             add_data: "--add-data assets:assets --add-data data/haarcascade_frontalface_default.xml:data"
-            exe: dist/FaceTrack
+            exe: dist/Attendly
           - os: windows-latest
-            artifact: FaceTrack-Windows-x86_64
+            artifact: Attendly-Windows-x86_64
             add_data: "--add-data assets;assets --add-data data/haarcascade_frontalface_default.xml;data"
-            exe: dist/FaceTrack.exe
+            exe: dist/Attendly.exe
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -33,7 +33,7 @@ jobs:
 
       - name: Build with PyInstaller
         run: >
-          pyinstaller --noconfirm --clean --onefile --windowed --name FaceTrack
+          pyinstaller --noconfirm --clean --onefile --windowed --name Attendly
           --hidden-import cv2.face ${{ matrix.add_data }} main.py
 
       - name: Upload artifact

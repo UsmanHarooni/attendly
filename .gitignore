@@ -4,7 +4,7 @@ __pycache__/
 venv/
 
 # PyInstaller output
-build/FaceTrack/
+build/
 dist/
 
 # App runtime data (user data, never commit)

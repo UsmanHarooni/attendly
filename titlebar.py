@@ -5,7 +5,7 @@ import branding
 
 
 class TitleBar(QWidget):
-    def __init__(self, window, title="FaceTrack — Attendance System"):
+    def __init__(self, window, title="Attendly — Attendance System"):
         super().__init__(window)
         self.window_ref = window
         self.setObjectName("titleBar")

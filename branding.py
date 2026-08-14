@@ -58,7 +58,7 @@ class SplashScreen(QWidget):
         badge.setPixmap(app_icon_pixmap(84))
         badge.setAlignment(Qt.AlignCenter)
 
-        title = QLabel("FaceTrack")
+        title = QLabel("Attendly")
         title.setObjectName("splashTitle")
         title.setAlignment(Qt.AlignCenter)
 

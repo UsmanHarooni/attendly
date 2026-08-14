@@ -185,7 +185,7 @@ class ReportsPage(QWidget):
         header_html = "".join(f"<th>{html.escape(str(h))}</th>" for h in self.headers)
         document = QTextDocument()
         document.setHtml(
-            "<h1 style='color:#6D5EFC;'>FaceTrack — Attendance</h1>"
+            "<h1 style='color:#6D5EFC;'>Attendly — Attendance</h1>"
             f"<h2 style='font-size:14px;'>{html.escape(self.title)}</h2>"
             f"<p style='color:#666;'>Generated {datetime.now().strftime('%Y-%m-%d %H:%M')}</p>"
             f"<table border='1' cellspacing='0' cellpadding='6'>"

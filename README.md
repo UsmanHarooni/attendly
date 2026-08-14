@@ -1,4 +1,4 @@
-# FaceTrack — Smart Attendance System
+# Attendly — Smart Attendance System
 
 A sellable-grade desktop attendance system for schools, colleges and
 workplaces. People register once by capturing their face from several
@@ -21,8 +21,8 @@ PyInstaller pipeline, so behavior is identical.
 
 | Platform | File | How to get it |
 |---|---|---|
-| **Linux** | `FaceTrack-Linux-x86_64` | Built locally from this repo, or from a GitHub release once you push and tag the repo |
-| **Windows** | `FaceTrack-Windows-x86_64` | Build with `build\build_windows.bat` on a Windows PC, or from a GitHub release |
+| **Linux** | `Attendly-Linux-x86_64` | Built locally from this repo, or from a GitHub release once you push and tag the repo |
+| **Windows** | `Attendly-Windows-x86_64` | Build with `build\build_windows.bat` on a Windows PC, or from a GitHub release |
 
 The fastest path is GitHub Releases: push this repo to GitHub and create a
 release with a tag like `v1.0.0`. The included
@@ -30,16 +30,16 @@ release with a tag like `v1.0.0`. The included
 Windows binaries and attaches them to the release:
 
 ```
-https://github.com/<your-username>/face-attendance/releases
+https://github.com/UsmanHarooni/attendly/releases
 ```
 
 No GitHub yet? Build locally instead:
 
 - **Windows:** install Python 3.10+ from python.org, then double-click
   `build\build_windows.bat` — it creates a venv, installs dependencies and
-  produces `dist\FaceTrack.exe`.
+  produces `dist\Attendly.exe`.
 - **Linux:** run `./build/build_linux.sh` (requires bash and Python 3.10+).
-  It produces the single-file executable `dist/FaceTrack`.
+  It produces the single-file executable `dist/Attendly`.
 
 First launch: the app creates its own `data/` folder next to the executable
 and stores everything there — you can carry that folder with the app to
@@ -49,7 +49,7 @@ another machine and your students and logs come along.
 
 ## What it does
 
-FaceTrack replaces the paper register. The teacher keeps the app open on a
+Attendly replaces the paper register. The teacher keeps the app open on a
 desk PC or laptop with a webcam. Students walk past, the camera
 recognizes them by face, and their name and time are logged. At the end of
 the day, the teacher opens Reports and exports the attendance sheet to PDF
@@ -216,7 +216,7 @@ without touching the UI, database or reporting layers.
 ### Run from source
 
 ```bash
-cd face-attendance
+cd attendly
 python3 -m venv venv
 venv/bin/pip install -r requirements.txt
 venv/bin/python main.py
